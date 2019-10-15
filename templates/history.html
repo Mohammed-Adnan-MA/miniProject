@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block style %}
+    <style>
+        #headline{
+            text-align: center;
+        }
+        .grid{
+            background-color: rgb(32, 35, 64);
+            display: grid;
+            padding: 20px;
+            grid-column-gap: 20px;
+            grid-row-gap: 10px;
+            grid-template-columns: auto auto auto auto auto auto;
+        }
+
+        .grid-item {
+                    background-color: darkorange;
+                    font-size: 20px;
+                    padding: 20px;
+                    text-align: center;
+                }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1 id="headline">History Details</h1>
+        
+        {% for import in dbImport %}
+            <div class="grid">
+                <div class="grid-item"><h2>{{ import.id }}</h2></div>
+                <div class="grid-item"><h2>Date</h2> {{ import.date }}</div>
+                <div class="grid-item"><h2>URL</h2> <img src="{{ import.url }}"></img></div>
+                <div class="grid-item"><h2>Title</h2> {{ import.title }}</div>
+                <div class="grid-item"><h2>Explanation</h2> {{ import.explanation }}</div>
+                <div class="grid-item"><h2>Copyrights</h2> {{ import.copyrights }}</div>
+            </div>         
+            <hr>
+        {% endfor %}
+{% endblock %}

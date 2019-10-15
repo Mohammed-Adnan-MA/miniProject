@@ -1,0 +1,60 @@
+body, #magic, #apod, #title, #explanation, #copyright {
+  text-align: center;
+  color: blue;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px; }
+
+@keyframes move0 {
+  from {
+    top: -40%; }
+  to {
+    top: -2%; } }
+@keyframes move1 {
+  from {
+    top: -80%; }
+  to {
+    top: 0%; } }
+@keyframes move2 {
+  from {
+    top: -120%; }
+  to {
+    top: 5%; } }
+@keyframes move3 {
+  from {
+    top: -160%; }
+  to {
+    top: 5%; } }
+@keyframes move4 {
+  from {
+    top: -200%; }
+  to {
+    top: 4%; } }
+#magic, #apod, #title, #explanation, #copyright {
+  position: relative;
+  animation-fill-mode: forwards; }
+
+#magic {
+  animation-duration: 1s;
+  animation-name: move0; }
+
+#apod {
+  animation-duration: 3s;
+  animation-name: move1; }
+
+#title {
+  animation-duration: 5s;
+  animation-name: move2; }
+
+#explanation {
+  animation-duration: 7s;
+  animation-name: move3; }
+
+#copyright {
+  animation-duration: 9s;
+  animation-name: move4; }
+
+/*# sourceMappingURL=style.css.map */

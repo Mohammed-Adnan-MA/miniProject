@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    APOD: Astronomy Picture of the Day    
+{% endblock %}
+
+
+{% block script %}
+    <script> 
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('#copyrights').innerHTML = "";
+                if ( "{{ check }}" == 1) {
+                        document.querySelector('#magic').innerHTML = "Date: {{ date }}";
+                        document.querySelector('#copyrights').innerHTML = "Copyrights:";    
+                    }
+                })
+    </script>
+{% endblock %}
+
+    {% block link %}
+        {% if check == '1' %}
+         <link rel="stylesheet" href="static/style.css"> 
+        {% endif %} 
+    {% endblock %}
+    <h1> {{ check }} </h1>
+            
+{% block body %}
+    <h1 id="magic">Want to see magic? Enter a date!</h1>
+    <img id="apod" src="{{ url }}"> </img>
+    <h2 id= "title">{{ title }} </h2>
+    <h2 id= "explanation">{{ explanation }} </h2>
+    <h2 id= "copyright"><span><a href="#" id="copyrights"> Copyrights:</a></span> {{ copyrights }} </h2>
+
+    <br>
+    <br>
+    <br>
+    
+    <form action="{{ url_for('pic') }}" method="post">
+
+        <div class="form-group">
+            <input class="form-control" name="date" placeholder="YYYY-MM-DD">
+        </div>
+
+        <div class="form-group">
+            <br>
+            <button id="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+{% endblock %}

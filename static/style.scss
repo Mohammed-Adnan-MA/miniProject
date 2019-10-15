@@ -1,0 +1,113 @@
+$text_align: center;
+$color: blue;
+$height: 0%;
+
+%message{
+    text-align: $text_align;
+    color: $color;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+
+body{
+    @extend %message;
+}
+
+
+@keyframes move0 {
+    from {
+        top: -40%;
+    }
+    to {
+        top: -2%;
+    }
+}
+
+@keyframes move1 {
+    from {
+        top: -80%;
+    }
+    to {
+        top: $height;
+    }
+}
+
+@keyframes move2 {
+    from {
+        top: -120%;
+    }
+    to {
+        top: $height + 5%;
+    }
+}
+
+@keyframes move3 {
+    from {
+        top: -160%;
+    }
+    to {
+        top: $height + 5%;
+    }
+}
+
+@keyframes move4 {
+    from {
+        top: -200%;
+    }
+    to {
+        top: $height + 4%;
+    }   
+}
+
+%animationSettings{
+    
+    position: relative;
+    animation-fill-mode: forwards;
+    //animation-iteration-count: infinite;
+}
+
+#magic {
+    @extend %message;
+    @extend %animationSettings;
+
+    animation-duration: 1s;
+    animation-name: move0; 
+    
+}
+
+#apod {
+    @extend %message;
+    @extend %animationSettings;
+
+    animation-duration: 3s;
+    animation-name: move1;   
+}
+
+#title{
+    @extend %message;
+    @extend %animationSettings;
+
+    animation-duration: 5s;
+    animation-name: move2;
+}
+
+#explanation {
+    @extend %message;
+    @extend %animationSettings;
+
+    animation-duration: 7s;
+    animation-name: move3;   
+}
+
+#copyright{
+    @extend %message;
+    @extend %animationSettings;
+
+    animation-duration: 9s;
+    animation-name: move4;
+}
